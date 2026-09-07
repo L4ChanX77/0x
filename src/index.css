@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Share+Tech+Mono&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --font-sans: var(--app-font-sans);
+  --font-mono: var(--app-font-mono);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root, .dark {
+  --background: 0 0% 4%;
+  --foreground: 0 0% 95%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 95%;
+  --border: 0 0% 15%;
+  --primary: 0 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 55%;
+  --accent: 340 100% 55%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 100% 50%;
+  --destructive-foreground: 0 0% 100%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 95%;
+  --sidebar: 0 0% 6%;
+  --sidebar-foreground: 0 0% 95%;
+  --sidebar-border: 0 0% 14%;
+  --sidebar-primary: 0 100% 50%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 0 0% 12%;
+  --sidebar-accent-foreground: 0 0% 95%;
+  --sidebar-ring: 0 100% 50%;
+  --input: 0 0% 18%;
+  --ring: 0 100% 50%;
+  --radius: 0.4rem;
+  --app-font-sans: 'Amiri', 'Scheherazade New', serif;
+  --app-font-mono: 'Share Tech Mono', monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--background)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+}
+
+/* Shine animation for text - red theme */
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
+.animate-shine {
+  animation: shine 3s ease-in-out infinite;
+}
+
+/* Divider glow animation - red to crimson */
+@keyframes dividerGlow {
+  0% {
+    background: #ff0044;
+    opacity: 0.8;
+  }
+  25% {
+    background: #ff3355;
+    opacity: 0.9;
+  }
+  50% {
+    background: #ff0044;
+    opacity: 1;
+  }
+  75% {
+    background: #ff3355;
+    opacity: 0.9;
+  }
+  100% {
+    background: #ff0044;
+    opacity: 0.8;
+  }
+}
+
+.animate-divider-glow {
+  animation: dividerGlow 2.5s ease-in-out infinite;
+}
+
+/* Red pulse glow */
+@keyframes redPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 68, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(255, 0, 68, 0.3); }
+}
+
+.red-pulse {
+  animation: redPulse 2s ease-in-out infinite;
+}
